@@ -83,6 +83,8 @@ public class JdeAltaImagen extends LlamadaServicio {
     log.info("commit-2");
     log.info("commit-3");
 
+    private String serv2 = null;
+
     private static String url = null;
 
     
