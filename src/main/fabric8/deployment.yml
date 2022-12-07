@@ -1,0 +1,80 @@
+metadata:
+ labels:
+  role: ${ROLE}
+  app: ${APP}
+  tecnologia: java
+ name: ${DEPLOYMENT}
+spec:
+ selector:
+  matchLabels:
+   app: ${APP}
+ template:
+  metadata:
+   labels:
+    app: ${APP}
+    tecnologia: java
+  spec:
+   affinity:
+    nodeAffinity:
+     requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node.info/kubeletVersion
+          operator: In
+          values:
+          - ${k8version}
+   containers:
+   - env:
+     - name: JAVA_OPTIONS
+       value: "-Duser.timezone=America/Argentina/Buenos_Aires -Djavax.net.ssl.trustStore=/opt/keystore/cupd.jks -Djavax.net.ssl.trustStorePassword=123456 -Djavax.net.ssl.trustStoreType=JKS"
+     - name: _AGENT_HOME_
+       value: "/BOOT_INF/classes/"
+     imagePullPolicy: Always
+     volumeMounts:
+     - name: keystore
+       mountPath: "/opt/keystore/"
+     livenessProbe:
+       failureThreshold: 3
+       httpGet:
+         path: /actuator/health/liveness
+         port: 8080
+         scheme: HTTP
+       initialDelaySeconds: 180
+       periodSeconds: 10
+       successThreshold: 1
+       timeoutSeconds: 1
+     readinessProbe:
+       failureThreshold: 3
+       httpGet:
+         path: /actuator/health/liveness
+         port: 8080
+         scheme: HTTP
+       initialDelaySeconds: 10
+       periodSeconds: 10
+       successThreshold: 1
+     livenessProbe:
+       failureThreshold: 3
+       httpGet:
+         path: /actuator/health/liveness
+         port: 8080
+         scheme: HTTP
+       initialDelaySeconds: 180
+       periodSeconds: 10
+       successThreshold: 1
+       timeoutSeconds: 1
+     readinessProbe:
+       failureThreshold: 3
+       httpGet:
+         path: /actuator/health/liveness
+         port: 8080
+         scheme: HTTP
+       initialDelaySeconds: 10
+       periodSeconds: 10
+       successThreshold: 1
+   volumes:
+   - name: keystore
+     secret:
+      secretName: cup-dijital-secret
+      defaultMode: 511
+   imagePullSecrets:
+    - name: reggapweb #

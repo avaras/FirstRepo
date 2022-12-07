@@ -83,9 +83,11 @@ public class JdeAltaImagen extends LlamadaServicio {
     log.info("commit-2");
     log.info("commit-3");
 
+    log.info("commit-4-dev");
+
     private static String url = null;
 
-    
+gi    
     private String serviceTag = "orac:wsAltaImagen";
     private String serviceResponseTag = "ns2:wsAltaImagenResponse";
     
