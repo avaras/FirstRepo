@@ -85,12 +85,9 @@ public class JdeAltaImagen extends LlamadaServicio {
 
     private String serv2 = null;
 
-<<<<<<< HEAD
     log.info("commit-6");
 
 
-=======
->>>>>>> parent of 5c18ba9 (commit-6)
     private static String url = null;
 
     System.out.println ("commit-8 -epic1");
