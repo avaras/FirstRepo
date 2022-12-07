@@ -93,7 +93,7 @@ public class JdeAltaImagen extends LlamadaServicio {
 
     log.info("commit-7");
 
-gi    
+    System.out.println("revert 10");
     private String serviceTag = "orac:wsAltaImagen";
     private String serviceResponseTag = "ns2:wsAltaImagenResponse";
     
