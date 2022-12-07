@@ -81,6 +81,8 @@ public class JdeAltaImagen extends LlamadaServicio {
     private static final Logger log = Logger.getLogger(JdeAltaImagen.class.getName());
 
     private static String url = null;
+
+    log.info("commit-2");
     
     private String serviceTag = "orac:wsAltaImagen";
     private String serviceResponseTag = "ns2:wsAltaImagenResponse";
