@@ -87,8 +87,10 @@ public class JdeAltaImagen extends LlamadaServicio {
 
     log.info("commit-6");
 
+
     private static String url = null;
 
+    System.out.println ("commit-8 -epic1");
     
     private String serviceTag = "orac:wsAltaImagen";
     private String serviceResponseTag = "ns2:wsAltaImagenResponse";
